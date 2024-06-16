@@ -11,8 +11,31 @@ import {
   MDBIcon
 }
 from 'mdb-react-ui-kit';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
 
 function Login() {
+
+  const [email,setEmail] = useState();
+  const [password,setPassword] =useState();
+
+  const auth = getAuth();
+
+  function LoginWithEmail(){
+    console.log("Login Function")
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode,errorMessage)
+    });
+  }
+  
     return (
         <MDBContainer fluid>
     
@@ -33,14 +56,14 @@ function Login() {
                 </MDBCol>
               </MDBRow>
     
-              <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-              <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+              <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' onChange={e=>setEmail(e.target.value)}/>
+              <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' onChange={e=> setPassword(e.target.value)}/>
     
               <div className='d-flex justify-content-center mb-4'>
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
     
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='md' onClick={LoginWithEmail}>sign up</MDBBtn>
     
               <div className="text-center">
     
