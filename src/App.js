@@ -1,7 +1,8 @@
 import './App.css';
-import Login from './login/login';
+// import Login from './login/login';
 import { getAuth } from "firebase/auth";
 import { app } from './Firebase/Firebase';
+import SignUp from './signup/signup';
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="App">
       
-      <Login/>
+      <SignUp/>
     </div>
   );
 }
