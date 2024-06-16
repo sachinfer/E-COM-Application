@@ -44,18 +44,9 @@ function Login() {
           <MDBCard className='mx-5 mb-5 p-5 shadow-5' style={{marginTop: '-100px', background: 'hsla(0, 0%, 100%, 0.8)', backdropFilter: 'blur(30px)'}}>
             <MDBCardBody className='p-5 text-center'>
     
-              <h2 className="fw-bold mb-5">Sign up now</h2>
+              <h2 className="fw-bold mb-5">Login Now</h2>
     
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-                </MDBCol>
-    
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
-                </MDBCol>
-              </MDBRow>
-    
+   
               <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' onChange={e=>setEmail(e.target.value)}/>
               <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' onChange={e=> setPassword(e.target.value)}/>
     
@@ -63,7 +54,7 @@ function Login() {
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
     
-              <MDBBtn className='w-100 mb-4' size='md' onClick={LoginWithEmail}>sign up</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='md' onClick={LoginWithEmail}>LOG IN</MDBBtn>
     
               <div className="text-center">
     
