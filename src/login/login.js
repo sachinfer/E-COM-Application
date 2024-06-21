@@ -33,6 +33,10 @@ function Login() {
       console.log(errorCode,errorMessage)
     });
   }
+
+  function signupWithGoogle(){
+    console.log("Sign up with Google")
+  }
   
     return (
         <MDBContainer fluid>
@@ -66,7 +70,7 @@ function Login() {
                   <MDBIcon fab icon='twitter' size="sm"/>
                 </MDBBtn>
     
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
+                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }} onClick={signupWithGoogle}>
                   <MDBIcon fab icon='google' size="sm"/>
                 </MDBBtn>
     
