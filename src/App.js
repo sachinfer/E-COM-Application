@@ -5,7 +5,6 @@ import { app } from './Firebase/Firebase';
 //import NavigationBar from './navigation/navbar';
 import SignUp from './signup/signup';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
