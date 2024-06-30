@@ -22,6 +22,21 @@ async function getData() {
   return 'done.';
 }
 
+async function getProducts() {
+  // Use connect method to connect to the server
+  await client.connect();
+  console.log('Connected successfully to server');
+  const db = client.db(dbName);
+  const collection = db.collection('products');
+  
+  // the following code examples can be pasted here...
+  const findResult = await collection.find({}).toArray();
+  console.log('Found documents =>', findResult);
+  resResult = findResult
+  console.log("Connected to ",dbName)
+  return 'done.';
+}
+
 async function postData(name, id) {
   // Use connect method to connect to the server
   await client.connect();
@@ -69,6 +84,16 @@ app.get("/api/getdata", (req, res) => {
     client.close()
   });
   });
+
+  app.get("/api/getproducts", (req, res) => {
+    getProducts()
+    .then()
+    .catch(console.error)
+    .finally(() => {
+      res.json(resResult);
+      client.close()
+    });
+    });
 
   app.post("/api/post", (req, res) => {
     
