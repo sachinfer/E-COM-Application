@@ -1,8 +1,7 @@
 import Item from "./Component/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { useState,useEffect } from "react";
+import ImageList from '@mui/material/ImageList';
+
 
 function Product() {
     const[data,setData]=useState()
@@ -13,25 +12,30 @@ function Product() {
             setData(data);
         
           });
-      }, []);
-      console.log(data)
+      }, []);   
+    console.log(data)
+    if(!data)
+        return(
+    <div>
+        Loading
+    </div>
+        )
+    else{
+
     return ( 
         <div>
-              <Container>
-      <Row>
-        <Col><Item/></Col>
-        <Col><Item/></Col>
-        <Col><Item/></Col>
-      </Row>
-      <Row>
-        <Col><Item/></Col>
-        <Col><Item/></Col>
-        <Col><Item/></Col>
-      </Row>
-    </Container>
             
+            <ImageList cols={3} rowHeight={200} style={{margin:"20px"}}>
+                {data.map((x) => (
+                    
+                       <Item Item={x} />
+                   
+                ))}
+            </ImageList>
+        
         </div>
      );
+}
 }
 
 export default Product;

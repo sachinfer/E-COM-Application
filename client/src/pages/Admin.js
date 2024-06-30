@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/Form';
 import { useState } from 'react';
+import Message from './Component/Modal';
 
 function AdminPage() {
-
+    const [show, setShow] = useState(false);
     const [id, setId] = useState();
     const [name,setName] = useState();
     const [price,setPrice] = useState();
@@ -22,17 +23,23 @@ function AdminPage() {
         console.log("Uploading Data")
         fetch('/api/post_product', requestOptions)
         .then(response => response.json())
-        .then(ResetForm());
+        .then(
+            
+            ResetForm());
     }
     function ResetForm(){
+        setShow(true)
         setId("")
         setName("")
         setPrice("")
         setDescription("")
         setUrl("")
     }
-        
+        console.log(show)
   return (
+    <div>
+  
+    <Message show={show}/>
     <Card style={{ width: '80%', marginLeft: '10%' }}>
     <Card.Header>ADMIN PAGE</Card.Header>
     <Card.Body>
@@ -65,6 +72,7 @@ function AdminPage() {
       <Button variant="primary" onClick={UploadData}>UPLOAD</Button>
     </Card.Body>
   </Card>
+  </div>
   );
 }
 
