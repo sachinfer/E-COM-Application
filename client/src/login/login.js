@@ -31,6 +31,7 @@ function Login() {
       // Signed in 
       const user = userCredential.user;
       console.log(user)
+      window.location.href = '/';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -49,6 +50,7 @@ function Login() {
     // The signed-in user info.
     const user = result.user;
     console.log(user)
+    window.location.href = '/';
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
