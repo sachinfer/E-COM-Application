@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import NavigationBar from './navigation/navbar';
 import AdminPage from './pages/Admin';
+import Product from './pages/Product';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="*" element={<NoPage />} />
           <Route path="admin" element={<AdminPage />} />
+          <Route path="product" element={<Product />} />
         </Route>
       </Routes>
     </BrowserRouter>

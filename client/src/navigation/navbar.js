@@ -11,6 +11,7 @@ function NavigationBar() {
           <Navbar.Brand href="home">Dashboard</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/product">Product</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signUp">SignUp</Nav.Link>
             <Nav.Link href="/blogs">Blogs</Nav.Link>
