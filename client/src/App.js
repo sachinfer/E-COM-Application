@@ -10,6 +10,7 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import NavigationBar from './navigation/navbar';
+import AdminPage from './pages/Admin';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

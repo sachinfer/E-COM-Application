@@ -35,6 +35,19 @@ async function postData(name, id) {
   console.log('Inserted documents =>', insertResult);
 }
 
+async function postProduct(name, id, price, description, url) {
+  // Use connect method to connect to the server
+  await client.connect();
+  console.log('Connected successfully to server');
+  const db = client.db(dbName);
+  const collection = db.collection('products');
+  
+  // the following code examples can be pasted here...
+  var myobj = { name, id, price, description, url };
+  const insertResult = await collection.insertOne(myobj);
+  console.log('Inserted documents =>', insertResult);
+}
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -68,3 +81,15 @@ app.get("/api/getdata", (req, res) => {
       client.close()
     });
     });
+
+    app.post("/api/post_product", (req, res) => {
+    
+      console.log(req.body)
+      postProduct(req.body.name, req.body.id,req.body.price,req.body.description,req.body.url)
+      .then()
+      .catch(console.error)
+      .finally(() => {
+        res.json("Success");
+        client.close()
+      });
+      });
